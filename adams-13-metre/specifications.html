@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scrollable Content Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <!-- jQuery Mobile styles -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+ 
+    <!-- Fix for scrolling on iOS prior to iOS 6 -->
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+ 
+        div#container {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+        }
+ 
+        div[data-role="header"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+ 
+        div[data-role="content"] {
+            position: absolute;
+            top: 41px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+ 
+        .scrollable {
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+ 
+            /* iOS specific fix, don't use it on Android devices */
+        .scrollable > * {
+            -webkit-transform: translateZ(0px);
+        }
+    </style>
+    
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).one('mobileinit', function () {
+ 
+            // Setting #container div as a jqm pageContainer
+            $.mobile.pageContainer = $('#container');
+ 
+            // Setting default page transition to slide
+            $.mobile.defaultPageTransition = 'slide';
+ 
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+ 
+</head>
+<body>
+<div id="container">
+ 
+    <div data-role="page" data-add-back-btn="true" >
+        <div data-role="header" data-position="fixed">
+            <h1>Adams 13 Metre</h1>
+        </div>
+ 
+        <div data-role="content" class="scrollable">
+        <h3 align="center">Specifications</h3>
+        <p>
+        LOA: 13.14 m. (43&rsquo; 1.5&rdquo;)<br>
+        LWL: 12.38 m. (40&rsquo; 7.5&rdquo;)<br>
+        Beam: 3.1 m. (10&rsquo; 2&rdquo;)<br>
+        Draft, centerboard up: 1.04 m. (3&rsquo; 4.25&rdquo;)<br>
+        Draft, centerboard down: 2.67 m. (8&rsquo; 9&rdquo;)<br>
+        Displacement: 6,560 kg. (14,460 lbs.)<br>
+        Ballast: 3,630 kg. (8000 lbs.)<br>
+        Sail Area: 99.82 sq. m. (1075 sq. ft.)</p>
+        <p>Headroom: 1.80 m. (5&rsquo; 11&rdquo;)<br>
+          Water: 300 l.**<br>
+          Fuel: 160 l.**<br>
+          Engine: Various from 13hp upwards</p>
+        <p>ADAMS 13E<br>
+          LOA: 13.5 m. (44&rsquo; 6&rdquo;)<br>
+          Beam 3.1 m. (10&rsquo; 2&rdquo;)<br>
+          Draft: 2.1 m. (7&rsquo; 0&rdquo;)</p>
+        <p>Designer: Joe Adams<br>
+          Builder: Adams Yachts, NSW Australia</p>
+        <p>**Water and fuel vary somewhat between boats</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

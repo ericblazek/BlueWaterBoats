@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scrollable Content Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <!-- jQuery Mobile styles -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+ 
+    <!-- Fix for scrolling on iOS prior to iOS 6 -->
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+ 
+        div#container {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+        }
+ 
+        div[data-role="header"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+ 
+        div[data-role="content"] {
+            position: absolute;
+            top: 41px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+ 
+        .scrollable {
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+ 
+            /* iOS specific fix, don't use it on Android devices */
+        .scrollable > * {
+            -webkit-transform: translateZ(0px);
+        }
+    </style>
+    
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).one('mobileinit', function () {
+ 
+            // Setting #container div as a jqm pageContainer
+            $.mobile.pageContainer = $('#container');
+ 
+            // Setting default page transition to slide
+            $.mobile.defaultPageTransition = 'slide';
+ 
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+ 
+</head>
+<body>
+<div id="container">
+ 
+    <div data-role="page" data-add-back-btn="true" >
+        <div data-role="header" data-position="fixed">
+            <h1>Adams 13 Metre</h1>
+        </div>
+ 
+        <div data-role="content" class="scrollable">
+        <h3 align="center">Overview</h3>
+        <p>
+            One of designer Joe Adams' most popular, the Adams 13 is well known in Australia. It was introduced in 1978, which is surprising as the boat seems modern even by todays standards. Adams took quite an innovative approach with the Metre series of boats, with the Adams 13 it's essentially a 36 foot yacht stretched to 43 feet to produce a narrow hull that's roomier below deck and more slippery through the water. Best of all, the Adams 13 retains much of the affordability of a 36 footer.
+</p><p>
+The boat is versatile; she's nimble enough for racing around the buoys, has had a long successful career as an offshore racer, and has also proven to be a competent, seakindly blue water cruising vessel. Most have centerboards, which when pulled up aids down wind performance and usefully draws barely over one metre for cruising into those shallow bays. Not surprisingly owners report the boat is easily handled and fun to sail.
+</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

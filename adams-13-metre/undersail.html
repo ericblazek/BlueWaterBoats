@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scrollable Content Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <!-- jQuery Mobile styles -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+ 
+    <!-- Fix for scrolling on iOS prior to iOS 6 -->
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+ 
+        div#container {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+        }
+ 
+        div[data-role="header"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+ 
+        div[data-role="content"] {
+            position: absolute;
+            top: 41px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+ 
+        .scrollable {
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+ 
+            /* iOS specific fix, don't use it on Android devices */
+        .scrollable > * {
+            -webkit-transform: translateZ(0px);
+        }
+    </style>
+    
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).one('mobileinit', function () {
+ 
+            // Setting #container div as a jqm pageContainer
+            $.mobile.pageContainer = $('#container');
+ 
+            // Setting default page transition to slide
+            $.mobile.defaultPageTransition = 'slide';
+ 
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+ 
+</head>
+<body>
+<div id="container">
+ 
+    <div data-role="page" data-add-back-btn="true" >
+        <div data-role="header" data-position="fixed">
+            <h1>Adams 13 Metre</h1>
+        </div>
+ 
+        <div data-role="content" class="scrollable">
+        <h3 align="center">Under Sail</h3>
+        <p>
+The Adams 13 is easily handled, rather nimble and owners report it as being fun to sail. The boat's motion is comfortable and seakindly, and it is said crossing oceans in her can often be less effort than a 36 foot yacht. Not surprisingly with such a narrow hull and light displacement, the boat is easily driven. You'll often find these boats fitted with incredibly small engines, some having 2 cylinder 20hp diesels or even smaller.
+</p><p>
+They are particularly fast off the breeze with their centerboard up, a useful strength given a decent amount of miles covered when offshore cruising is done off the wind. The tradeoff is the high center of gravity of the ballast in the stub keel, which makes the boat relatively tender which detracts from windward performance. The boat needs to be reefed early despite the large amount of sail area the boat can carry.
+</p><p>
+Though setup as a cutter rig, the favourite for long distance passage-making, when sailing inshore she is commonly sailed as a sloop with headsails of modest size. Her best point of sail is in a broad reach when most of the sail area can be used in to good effect without reefing.
+</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

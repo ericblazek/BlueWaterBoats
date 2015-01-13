@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scrollable Content Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <!-- jQuery Mobile styles -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+ 
+    <!-- Fix for scrolling on iOS prior to iOS 6 -->
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+ 
+        div#container {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+        }
+ 
+        div[data-role="header"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+ 
+        div[data-role="content"] {
+            position: absolute;
+            top: 41px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+ 
+        .scrollable {
+            overflow-y: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+ 
+            /* iOS specific fix, don't use it on Android devices */
+        .scrollable > * {
+            -webkit-transform: translateZ(0px);
+        }
+    </style>
+    
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).one('mobileinit', function () {
+ 
+            // Setting #container div as a jqm pageContainer
+            $.mobile.pageContainer = $('#container');
+ 
+            // Setting default page transition to slide
+            $.mobile.defaultPageTransition = 'slide';
+ 
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+ 
+</head>
+<body>
+<div id="container">
+ 
+    <div data-role="page" data-add-back-btn="true" >
+        <div data-role="header" data-position="fixed">
+            <h1>Adams 13 Metre</h1>
+        </div>
+ 
+        <div data-role="content" class="scrollable">
+        <h3 align="center">History</h3>
+        <p>
+            The Adams 13 was penned around 1977-78 shortly after the introduction of her smaller sibling, the Adams 10 Metre. Designer Graham Radford, who was a partner in Adams Yacht Design for a decade during those years, tells us the Adams 10 was the first boat produced in the "Adams Metre" range. These were light displacement, narrow beamed performance cruising yachts.
+</p><p>
+When we asked about the design goals of the Adams 13 Radford commented:
+</p><blockquote>
+    "It was really just a small but long cruising boat. Not a big volume boat, it's narrow, it's long, it's got the accommodation volume of a 36 footer but in 43 feet of length … The centerboard was to give it very shallow draft for cruising. That style of centerboard we used on quite a few designs from little boats right through to 56 footers. It's proved very popular and has done a lot of sea miles."
+</blockquote><p>
+Interestingly the Adams 13 was a boat Joe Adams initially designed for himself, he invested a lot of time dialing in this particular design. The moulds were funded by a syndicate of five owners including Adams himself. Each put in one fifth of the cost and after the five boats were built the moulds were sold off and since then they have changed hands multiple times.
+<p>
+The very first boat was called Fanny Adams which was built for an owner in Sydney who did some offshore racing with her. Since then an estimated 80 boats have been built by various builders and we hear the last hull to have popped off the moulds was in 2002. The moulds are presently owned by Peter Rigby of Adams Yacht Sales, who are open for new orders.
+</p><p>
+No history on the Adams 13 would be complete without a mention that although designed as a cruising yacht, the boat has had a successful career as an offshore racer including many entries in the Sydney-Hobart race. She remains competitive to this day.
+</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
